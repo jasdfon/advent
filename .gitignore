@@ -62,9 +62,6 @@ typings/
 .next
 *.zip
 
-developer*.yaml
-
-#github action secrets
-local/act.vault
-local/event.json
-local/run-local.js
+#local
+local/*
+local
