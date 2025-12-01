@@ -1,0 +1,18 @@
+{
+  "name": "advent",
+  "version": "0.2025.01",
+  "description": "",
+  "scripts": {
+    "day": "node ./${YEAR:-2025}/day${DAY:-01}/part1.js && node ./${YEAR:-2025}/day${DAY:-01}/part2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasdfon/advent.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasdfon/advent/issues"
+  },
+  "homepage": "https://github.com/jasdfon/advent#readme"
+}
