@@ -1,22 +1,25 @@
+const fs = require('node:fs')
 const readline = require('node:readline');
 
-const startTime = Date.now();
 let position = 50;
 let silver = 0;
 let gold = 0;
 
+const filename = process.argv[2];
+if (!filename) {
+  console.error(`usage: node ${process.argv[1]} <file>`);
+  process.exit(1);
+}
+
 const rl = readline.createInterface({
-  input: process.stdin
+  input: fs.createReadStream(filename)
 });
 
 rl.on("line", line => {
     const negative = line.startsWith('L');
     if ( line.length < 2 ){
-        console.log(line);
         line = line.charAt(0) + '00';
-    }
-    if ( line.length < 3 ){
-        console.log(line);
+    } else if ( line.length < 3 ){
         line = line.charAt(0) + '0' +  line.charAt(1);
     }
     const fullRotationCount = new Number(line.slice(1,-2));
@@ -52,5 +55,4 @@ rl.on("line", line => {
 rl.on("close", () => {
     console.log('silver', silver);
     console.log('gold', gold);
-    console.log(`execution time: ${Date.now() - startTime} ms`);
 });

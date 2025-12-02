@@ -1,4 +1,5 @@
 *.txt
 !edgecases.txt
+*.exe
 package-lock.json
 node_modules/
