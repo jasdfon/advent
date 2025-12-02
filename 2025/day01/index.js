@@ -1,7 +1,6 @@
 const fs = require('node:fs')
 const readline = require('node:readline');
 
-const startTime = Date.now();
 let position = 50;
 let silver = 0;
 let gold = 0;
