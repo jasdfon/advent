@@ -4,13 +4,13 @@
 
 int main(int argc, char *argv[]) {
     int position = 50;
-    int silver = 0;
-    int gold = 0;
+    long silver = 0;
+    long gold = 0;
 
     FILE *fp = fopen(argv[1], "r");
     if (!fp) return 1;
 
-    char line[32];
+    char line[64];
 
     while (fgets(line, sizeof(line), fp)) {
         int len = strlen(line);
@@ -50,7 +50,6 @@ int main(int argc, char *argv[]) {
                 gold += 1;
             }
         }
-
         if (position == 0 && (fullRotationCount > 0 || positionMove > 0)) {
             silver += 1;
         }
