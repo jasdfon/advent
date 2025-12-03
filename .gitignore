@@ -1,5 +1,5 @@
 *.txt
-!edgecases.txt
-*.exe
+!example.txt
+*.bin
 package-lock.json
 node_modules/
