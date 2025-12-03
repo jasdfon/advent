@@ -3,7 +3,7 @@
 #include <string.h>
 #include <math.h>
 
-#define AOC_CHAR_BUFFER_SIZE 256
+#define AOC_CHAR_BUFFER_SIZE 64
 
 long MAX_VALUES[16] = {0, 9, 99, 999, 9999, 99999, 999999, 9999999, 99999999, 999999999, 9999999999, 99999999999, 999999999999, 9999999999999, 99999999999999, 999999999999999};
 long TEN_MULTIPLIERS[16] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000, 100000000000, 1000000000000, 10000000000000, 100000000000000, 1000000000000000};
@@ -45,6 +45,7 @@ long dedupeSum(long *ids, int length){
 }
 
 long nextInvalidId(long current, int *digits, int n){
+    printf("nextInvalidId current: %ld, digits: %d, n: %d\n", current, *digits, n);
     if(*digits % n != 0){
         int partLen = ceil(*digits/(double)n);
         *digits = partLen * n;    
@@ -100,7 +101,7 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
             aStr[(i+1)*partLen] = temp;
         }
         if(addId){
-            //printf("adding %ld to resArray[%d]\n", aVal, *resLen);
+            printf("adding %ld\n", aVal, *resLen);
             resArray[(*resLen)++] = aVal;
         }
     }
@@ -108,8 +109,8 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
     while(aVal <= bVal){
         /*printf("digits: %d, n: %d\n", digits, n);
         printf("aVal: %ld\n", aVal);
-        printf("bVal: %ld\n", bVal);
-        printf("adding %ld to resArray[%d]\n", aVal, *resLen);*/
+        printf("bVal: %ld\n", bVal);*/
+        printf("adding %ld\n", aVal, *resLen);
         resArray[(*resLen)++] = aVal;
         aVal = nextInvalidId(aVal, &digits, n);
     }
