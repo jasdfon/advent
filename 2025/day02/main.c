@@ -45,7 +45,7 @@ long dedupeSum(long *ids, int length){
 }
 
 long nextInvalidId(long current, int *digits, int n){
-    printf("nextInvalidId current: %ld, digits: %d, n: %d\n", current, *digits, n);
+    //printf("nextInvalidId current: %ld, digits: %d, n: %d\n", current, *digits, n);
     if(*digits % n != 0){
         int partLen = ceil(*digits/(double)n);
         *digits = partLen * n;    
@@ -59,7 +59,8 @@ long nextInvalidId(long current, int *digits, int n){
         //printf("part %d: %ld\n", i, parts[i]);
     }
     int invalidId = 1;
-    for(int i = 1; i < n; i++){
+    int i = 1;
+    for(i = 1; i < n; i++){
         if(parts[i] != parts[0]){
             invalidId = 0;
             break;
@@ -69,9 +70,7 @@ long nextInvalidId(long current, int *digits, int n){
         *digits = (partLen+1) * n;
         return expandId(parts[0]+1, partLen+1, n);
     }
-    int i = 0;
-    for(i = 1;  i < n && parts[i] != parts[0]; i++){}
-    if(i-1 < n && parts[i-1] < parts[0]){
+    if(i < n && parts[i] < parts[0]){
         return expandId(parts[0], partLen, n);
     }
     return expandId(parts[0]+1, partLen, n);
@@ -101,7 +100,7 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
             aStr[(i+1)*partLen] = temp;
         }
         if(addId){
-            printf("adding %ld\n", aVal, *resLen);
+            //printf("adding %ld\n", aVal, *resLen);
             resArray[(*resLen)++] = aVal;
         }
     }
@@ -110,7 +109,7 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
         /*printf("digits: %d, n: %d\n", digits, n);
         printf("aVal: %ld\n", aVal);
         printf("bVal: %ld\n", bVal);*/
-        printf("adding %ld\n", aVal, *resLen);
+        //printf("adding %ld\n", aVal, *resLen);
         resArray[(*resLen)++] = aVal;
         aVal = nextInvalidId(aVal, &digits, n);
     }
