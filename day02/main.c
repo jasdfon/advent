@@ -76,7 +76,7 @@ long nextInvalidId(long current, int *digits, int n){
     return expandId(parts[0]+1, partLen, n);
 }
 
-void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* resLen){
+void invalidIds(char *aStr, int aLen, char *bStr, int n, long *resArray, int *resLen){
     int i;
     long result = 0;
     long aVal = atol(aStr);

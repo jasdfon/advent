@@ -4,7 +4,7 @@
 #define GOLD_BATTERY_SIZE 12
 #define SILVER_BATTERY_SIZE 2
 
-void updateBattery(char* bat, int batSize, char c){
+void updateBattery(char *bat, int batSize, char c){
     int cAvail = 1;
     for(int i = 0; i < batSize - 1 && cAvail; i++){
         if(bat[i] < bat[i+1]){
@@ -21,7 +21,7 @@ void updateBattery(char* bat, int batSize, char c){
     }
 }
 
-void initBatteries(char* goldBat, char* silverBat, FILE *fp){
+void initBatteries(char *goldBat, char *silverBat, FILE *fp){
     int i = 0;
     for(i = 0; i < GOLD_BATTERY_SIZE; i++){
         char c = fgetc(fp);
@@ -59,8 +59,8 @@ int main(int argc, char *argv[]){
         }
     };
 
-    printf("gold %ld\n", gold);
     printf("silver %ld\n", silver);
+    printf("gold %ld\n", gold);
     fclose(fp);
     return 0;
 }
