@@ -1,0 +1,1 @@
+`gcc -o ./main.bin main.c -lm && ./main.bin example.txt`
