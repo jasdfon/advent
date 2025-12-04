@@ -100,7 +100,6 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
             aStr[(i+1)*partLen] = temp;
         }
         if(addId){
-            //printf("adding %ld\n", aVal, *resLen);
             resArray[(*resLen)++] = aVal;
         }
     }
@@ -109,7 +108,6 @@ void invalidIds(char* aStr, int aLen, char* bStr, int n, long* resArray, int* re
         /*printf("digits: %d, n: %d\n", digits, n);
         printf("aVal: %ld\n", aVal);
         printf("bVal: %ld\n", bVal);*/
-        //printf("adding %ld\n", aVal, *resLen);
         resArray[(*resLen)++] = aVal;
         aVal = nextInvalidId(aVal, &digits, n);
     }
