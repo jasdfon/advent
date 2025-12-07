@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
     }
     fclose(fp);
     printf("silver %ld\n", silver);
-    for(int i = 0; i < stateMax; i++){
+    for(int i = 0; i < stateMax; i++){ // sum timelines
         gold += state[i];
     }
     printf("gold %ld\n", gold);
