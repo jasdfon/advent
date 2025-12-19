@@ -27,7 +27,7 @@ int getSet(int *circuits, int n){
     return circuits[n] = getSet(circuits, circuits[n]);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
     long silver = 0;
     unsigned long long gold = 0;
     FILE *fp = fopen(argv[1], "r");
